@@ -1,0 +1,32 @@
+{% extends '/admin/base_admin.html.twig' %}
+
+{% block title %}Hello AdminFormationController!{% endblock %}
+
+{% block contenu %}
+    <table class="table table-success table-striped-columns">
+        <thead>
+        <tr>
+            <th scope="col">Libellé</th>
+            <th scope="col">Description</th>
+            <th scope="col">Durées en heures</th>
+            <th scope="col">Type formation</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.libelle }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.duree}}</td>
+                <td>{{ formation.type.libelle }}</td>
+                <td>
+                    <a class="btn btn-primary"  href="{{ path('app_admin_formation_modifier', {'id': formation.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" onclick="return confirm('Etes vous sur ?')" href="{{ path('app_admin_formation_supprimer', {'id': formation.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('app_admin_formation_ajouter') }}" class="btn btn-primary">Ajouter une formation</a>
+{% endblock %}

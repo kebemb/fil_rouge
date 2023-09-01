@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du bien{{ formation.libelle }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('formation') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Détails de la formation : {{ formation.libelle }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ formation.libelle }} <i class="fa-solid fa-house"></i></h5>
+                <p class="card-text">
+                    {{ formation.description }} <br>
+                    {{ formation.duree }} heures
+                </p>
+                <a href="{{ path('app_formation_lister') }}" class="btn btn-primary">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

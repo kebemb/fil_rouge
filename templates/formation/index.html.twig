@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block stylesheets  %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('formation') }}
+{% endblock %}
+
+{% block body %}
+    {# commentaire twig {{ un eco ...}} #}
+
+    <div class="row">
+        {% for formation in formations %}
+            <div class="col mb-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ formation.libelle }}</h5>
+                        <p class="card-text">{{ formation.description }}</p>
+                        <a href="{{ path('app_formation_voir', {'id':formation.id}) }}" class="btn btn-primary">Voir la formation</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

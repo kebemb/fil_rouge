@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: lightgray;
+
+    & h1{
+        color: blue;
+    }
+}
+
+.container{
+    padding: 30px;
+}
