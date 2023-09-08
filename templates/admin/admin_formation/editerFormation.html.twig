@@ -7,6 +7,10 @@
         {{ form_start(form) }}
         {{ form_row(form.libelle) }}
         {{ form_row(form.description) }}
+        {% if formation.photo is not null%}
+            <img src="{{ asset('images/uploads/formations/' ~ formation.photo) }}" alt="">
+        {% endif %}
+        {{ form_row(form.photo) }}
         {{ form_row(form.type) }}
         {{ form_row(form.duree) }}
         {%  if app.request.get('_route') == 'app_admin_formation_ajouter' %}

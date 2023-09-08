@@ -33,7 +33,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Mbayang KEBE <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">CENTRE FORMATION <sup></sup></div>
         </a>
 
         <!-- Divider -->
@@ -45,16 +45,33 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ path( "app_admin_formation_lister") }}">
-                <i class="fa-solid fa-icons"></i>
-                <span>Gestions des Formations</span>
-            </a>
-        </li>
+        {% if is_granted('ROLE_FORMATEUR') %}
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path( "app_admin_formation_lister") }}">
+                    <i class="fa-solid fa-icons"></i>
+                    <span>Gestions des Formations</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% if is_granted('ROLE_CONSEILLER') %}
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ path( "app_admin_type_lister") }}">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Gestion des Types de Formation</span>
+                <span> {% set var ='<strong>titre en gras</strong>' %}</span>
+            </a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ path('app_formation_lister') }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Accueil</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ path( "app_logout") }}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Deconnexion</span>
             </a>
         </li>
 

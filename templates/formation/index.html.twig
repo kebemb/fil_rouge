@@ -14,10 +14,11 @@
         {% for formation in formations %}
             <div class="col mb-4">
                 <div class="card" style="width: 18rem;">
+                    <img src="{{ asset('images/uploads/formations/' ~ formation.photo) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ formation.libelle }}</h5>
                         <p class="card-text">{{ formation.description }}</p>
-                        <a href="{{ path('app_formation_voir', {'id':formation.id}) }}" class="btn btn-primary">Voir la formation</a>
+                        <a href="{{ path('app_formation_voir', {'id':formation.id}) }}" class="btn btn-primary" class="btn btn-primary">Détails</a>
                     </div>
                 </div>
             </div>
